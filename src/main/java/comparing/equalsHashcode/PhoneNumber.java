@@ -1,5 +1,10 @@
 package comparing.equalsHashcode;
 
+
+import java.util.Comparator;
+
+import static java.util.Comparator.comparingInt;
+
 public class PhoneNumber {
     private final short areaCode, prefix, lineNum;
     private int hashCode;
@@ -9,6 +14,7 @@ public class PhoneNumber {
         this.prefix = rangeCheck(prefix, 999, "prefiks");
         this.lineNum = rangeCheck(lineNum, 9999, "numer linii");
     }
+
     private static short rangeCheck(int val, int max, String arg) {
         if (val < 0 || val > max)
             throw new IllegalArgumentException(arg + ": " + val);
@@ -21,10 +27,11 @@ public class PhoneNumber {
             return true;
         if (!(o instanceof PhoneNumber))
             return false;
-        PhoneNumber pn = (PhoneNumber)o;
+        PhoneNumber pn = (PhoneNumber) o;
         return pn.lineNum == lineNum && pn.prefix == prefix
                 && pn.areaCode == areaCode;
     }
+
     @Override
     public int hashCode() {
         int result = hashCode;
@@ -41,5 +48,14 @@ public class PhoneNumber {
     public String toString() {
         return String.format("%03d-%03d-%04d",
                 areaCode, prefix, lineNum);
+    }
+
+    private static final Comparator<PhoneNumber> COMPARATOR =
+            comparingInt((PhoneNumber pn) -> pn.areaCode)
+                    .thenComparingInt(pn -> pn.prefix)
+                    .thenComparingInt(pn -> pn.lineNum);
+
+    public int compareTo(PhoneNumber pn) {
+        return COMPARATOR.compare(this, pn);
     }
 }

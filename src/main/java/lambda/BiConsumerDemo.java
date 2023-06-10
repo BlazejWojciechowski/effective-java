@@ -1,6 +1,5 @@
 package lambda;
 
-import javax.swing.*;
 import java.util.function.BiConsumer;
 
 public class BiConsumerDemo {

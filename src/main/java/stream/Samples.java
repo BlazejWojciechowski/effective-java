@@ -112,5 +112,13 @@ public class Samples {
         System.out.println(idMap);
         System.out.println(sortedMap);
          */
+
+        Map<Integer,String> sortedMap = idMap.entrySet()
+                .stream()
+                .sorted(Collections.reverseOrder(Map.Entry.comparingByValue(Comparator.comparingInt(String::length))))
+                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
+
+        System.out.println(idMap);
+        System.out.println(sortedMap);
     }
 }

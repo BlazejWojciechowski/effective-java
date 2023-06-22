@@ -13,11 +13,10 @@ public class Armstrong {
 
         while (digit != 0) {
             int lastDigit = digit % 10;
-            int mathPow = 1;
+            int mathPow = 0;
 
-            for (int i = 0; i < numOfDigits; i++) {
-                mathPow *= lastDigit;
-            }
+            mathPow = (int) Math.pow(lastDigit, numOfDigits);
+
             sum += mathPow;
 
             digit = digit / 10;

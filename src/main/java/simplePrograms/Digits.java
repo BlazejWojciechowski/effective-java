@@ -23,6 +23,7 @@ public class Digits {
         JOptionPane.showMessageDialog(null, "Suma podanych cyfr to " + sum);
          */
 
+        /*
         int binary = Integer.parseInt(input);
         int copyOfBinary = binary;
         int lastDigit;
@@ -42,5 +43,21 @@ public class Digits {
             System.out.println(binary + " is a Binary");
         else
             System.out.println(binary + " is NOT a Binary");
+         */
+        /*
+        int number = Integer.parseInt(input);
+        int rem = 0;
+        String hex = "";
+
+        char[] hexDecimals = {'0', '1', '2', '3', '4', '5', '6' , '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
+
+        while (number > 0) {
+            rem = number % 16;
+            hex = hexDecimals[rem] + hex;
+            number /= 16;
+        }
+
+        System.out.println(hex);
+         */
     }
 }

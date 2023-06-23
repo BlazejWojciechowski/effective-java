@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
 public class ExerciseString {
     public static void main(String[] args) {
         String input;
-        String input2;
+        //String input2;
         /* reverse
         input = JOptionPane.showInputDialog("Gimme some String value...");
         StringBuilder strb = new StringBuilder(input);
@@ -52,6 +52,21 @@ public class ExerciseString {
                 .stream()
                 .limit(1)
                 .forEach(System.out::println);
+         */
+        /*
+        input = JOptionPane.showInputDialog("Gimme some String and am gonna to reverse it");
+        String[] words = input.split(" ");
+        String reversedWords = "";
+
+        for (int i = words.length - 1; i >= 0; i--) {
+            String word = words[i];
+            String reverse = "";
+            for (int j = word.length() - 1; j >= 0; j--) {
+                reverse += word.charAt(j);
+            }
+            reversedWords += reverse + " ";
+        }
+        JOptionPane.showMessageDialog(null, reversedWords);
          */
 
     }

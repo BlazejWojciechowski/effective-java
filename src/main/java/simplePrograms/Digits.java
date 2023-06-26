@@ -1,6 +1,7 @@
 package simplePrograms;
 
 import javax.swing.*;
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.function.BiPredicate;
@@ -9,7 +10,6 @@ import java.util.function.Predicate;
 
 public class Digits {
     public static void main(String[] args) {
-        String input = JOptionPane.showInputDialog("Gimme some digit");
         /*
         int digit = Integer.parseInt(input);
         int sum = 0;
@@ -59,5 +59,66 @@ public class Digits {
 
         System.out.println(hex);
          */
+
+        /*
+        String num = JOptionPane.showInputDialog("How many prime numbers you want?");
+        int numOfPrimes = Integer.parseInt(num);
+        String above = JOptionPane.showInputDialog("After which number?");
+        int aboveNumber = Integer.parseInt(above);
+
+        List<Integer> primeNum = new ArrayList<>();
+
+        int counter = 0;
+        int inputNumber = aboveNumber;
+
+        while (counter < numOfPrimes) {
+            if (isPrime(inputNumber)) {
+                primeNum.add(inputNumber);
+                counter++;
+            }
+            inputNumber++;
+        }
+
+
+
+        System.out.println(primeNum);
+
+         */
+        String input = JOptionPane.showInputDialog("Im gonna to check if given number is a Harshad...");
+
+        int number = Integer.parseInt(input);
+        int copyOfNumber = number;
+        int sum = 0;
+
+        while (number != 0) {
+            int lastDigit = number % 10;
+            sum += lastDigit;
+            number /= 10;
+        }
+        if ((copyOfNumber % sum) == 0)
+            System.out.println("Given number is a Harshad one...");
+        else
+            System.out.println("Given number is NOT a Harshad number...");
+
+
+
     }
+    /*
+    static boolean isPrime(int number) {
+        boolean isPrime = true;
+
+        if (number <= 1) {
+            isPrime = false;
+        }
+        else  {
+            for (int i = 2; i <= number / 2; i++) {
+                if (number % i == 0) {
+                    isPrime = false;
+                    break;
+                }
+            }
+        }
+        return isPrime;
+    }
+     */
 }

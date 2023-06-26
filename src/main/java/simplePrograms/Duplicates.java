@@ -1,9 +1,7 @@
 package simplePrograms;
 
 import javax.swing.*;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public class Duplicates {
     public static void main(String[] args) {
@@ -61,6 +59,44 @@ public class Duplicates {
         else
             System.out.println("Arrays are not equals");
          */
+        /*
+        String input = JOptionPane.showInputDialog("Gimme some long String");
+        System.out.println(input);
+
+        String copyOfInput = input.replaceAll(" ", "");
+
+        char[] charsInput = copyOfInput.toLowerCase().toCharArray();
+
+        Map<Character, Integer> countMap = new HashMap<>();
+
+        for (Character c : charsInput) {
+            if (countMap.containsKey(c))
+                countMap.put(c, countMap.get(c) + 1);
+            else
+                countMap.put(c, 1);
+        }
+
+        System.out.println(countMap);
+
+        countMap.entrySet()
+                .stream().max(Map.Entry.comparingByValue())
+                .ifPresent(System.out::println);
+         */
+        List<Integer> numbers = List.of(3, 8, 8, 4, 1, 6, 4, 8, 4, 8, 2, 5, 2, 8, 7, 4, 5, 4);
+        Map<Integer, Integer> countMap = new LinkedHashMap<>();
+
+        for (Integer i : numbers) {
+            if (countMap.containsKey(i))
+                countMap.put(i, countMap.get(i) + 1);
+            else
+                countMap.put(i, 1);
+        }
+
+        countMap.entrySet()
+                .stream()
+                .sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))
+                .limit(1)
+                .forEach(System.out::println);
 
     }
 }

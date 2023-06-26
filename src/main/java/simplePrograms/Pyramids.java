@@ -23,6 +23,7 @@ public class Pyramids {
             rowCount++;
         }
          */
+        /*
         String input;
         int numRows;
         int rowCount = 1;
@@ -40,6 +41,19 @@ public class Pyramids {
             System.out.println();
 
             rowCount++;
+        }
+         */
+
+        String input = JOptionPane.showInputDialog("Im gonna to make for you some Floyd's Triangle,with how many rows ?");
+        int numOfRows = Integer.parseInt(input);
+
+        int value = 1;
+        for (int i = 1; i <= numOfRows; i++) {
+            for (int j = 1; j <= i; j++) {
+                System.out.print(value +"\t");
+                value++;
+            }
+            System.out.println();
         }
     }
 }

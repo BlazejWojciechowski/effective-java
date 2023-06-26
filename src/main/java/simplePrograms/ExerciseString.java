@@ -69,5 +69,27 @@ public class ExerciseString {
         JOptionPane.showMessageDialog(null, reversedWords);
          */
 
+        input = JOptionPane.showInputDialog("Gimme some word and am gonna to check if it is a Palindrome..");
+        String copyOfInput = input.replaceAll(" ", "");
+        char[] charsInput = copyOfInput.toLowerCase().toCharArray();
+
+        int forward = 0;
+        int backward = charsInput.length - 1;
+        boolean status = true;
+
+
+        while (forward <= backward) {
+            if (charsInput[forward] != charsInput[backward])
+                status = false;
+
+            forward++;
+            backward--;
+        }
+
+        if (status)
+            System.out.println(input + " is a Palindrome.");
+        else
+            System.out.println(input + " is Not a Palindrome");
+
     }
 }

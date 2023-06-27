@@ -9,7 +9,6 @@ import java.util.function.BinaryOperator;
 import java.util.function.Predicate;
 
 public class Digits {
-    public static void main(String[] args) {
         /*
         int digit = Integer.parseInt(input);
         int sum = 0;
@@ -84,6 +83,7 @@ public class Digits {
         System.out.println(primeNum);
 
          */
+        /*
         String input = JOptionPane.showInputDialog("Im gonna to check if given number is a Harshad...");
 
         int number = Integer.parseInt(input);
@@ -99,10 +99,8 @@ public class Digits {
             System.out.println("Given number is a Harshad one...");
         else
             System.out.println("Given number is NOT a Harshad number...");
+         */
 
-
-
-    }
     /*
     static boolean isPrime(int number) {
         boolean isPrime = true;
@@ -121,4 +119,39 @@ public class Digits {
         return isPrime;
     }
      */
+    public static void main(String[] args) {
+        String input = JOptionPane.showInputDialog("How many Disarium numbers you want me to display?");
+        int numOfDisariums = Integer.parseInt(input);
+
+        String input2 = JOptionPane.showInputDialog("From which number you want me to start?");
+        int startNumber = Integer.parseInt(input2);
+        int counter = 0;
+
+        List<Integer> disNumbers = new ArrayList<>();
+
+        while (counter < numOfDisariums) {
+            if (isDisariumNumber(startNumber)) {
+                disNumbers.add(startNumber);
+                counter++;
+                startNumber++;
+            }
+            startNumber++;
+        }
+        System.out.println(disNumbers);
+    }
+    static boolean isDisariumNumber(int number) {
+        int numOfNumber = Integer.toString(number).length();
+        int sum = 0;
+        int copyNum = number;
+
+        while (number > 0) {
+            int lastDigit = number % 10;
+            sum += Math.pow(lastDigit, numOfNumber);
+            number /= 10;
+
+            numOfNumber--;
+        }
+
+        return sum == copyNum;
+    }
 }
